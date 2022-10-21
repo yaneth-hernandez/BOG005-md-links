@@ -1,14 +1,17 @@
-const fs = require('fs');
+const getPath = require('./getPath.js')
+const pathFile = process.argv[2]
 
 
-module.exports =  (path) => {
-  return new Promise((resolve, reject) => {
-    fs.readFile(path, 'UTF-8', (err, data) => {
-      if (err) {
-        reject({error:err})
-      } else {
-        resolve(data)
-      }
-    })
+//prueba
+
+getPath.readFiles(pathFile) //pathFile es el nombre del archivo
+.then((data) => { //data es el contenido del archivo
+    console.log('Resuelta')
+   //console.log(data)
   })
-}
+  .catch((err) => {
+    console.log(err)
+  })
+//prueba
+
+console.log(getPath.isMd(pathFile))
