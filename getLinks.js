@@ -5,6 +5,7 @@ const pathFile = process.argv[2]
 const getMdFiles = require('./getMdFiles.js')
 
 
+
 //prueba
 
 getPath.readFiles(pathFile) //pathFile es el nombre del archivo md
