@@ -17,7 +17,14 @@ const resolveAbsolutePath = (route) => {
 }
 
 const isADirectory = (route) => {
-    return fs.statSync(route).isDirectory();
+    try{
+        return fs.statSync(route).isDirectory();
+    } catch(error){
+        if(error.errno === -2){
+            return false
+        }
+    }
+    
 }
 
 const readDirectory = (route) => {
@@ -25,7 +32,14 @@ const readDirectory = (route) => {
 }
 
 const isAFile = (route) => {
-    return fs.statSync(route).isFile();
+    try{
+        return fs.statSync(route).isFile();
+    }catch(error){
+        if(error.errno === -2){
+            return false
+        }
+    }
+    
 }
 
 /**
@@ -33,7 +47,7 @@ const isAFile = (route) => {
  * @returns {Boolean} true si el archivo es md false si no lo es
  */
 const isMd = (file) => {
-    return path.extname(file) === '.md'
+    return path.extname(file) === '.md' 
 }
 
 const readFiles = (pathMdFiles) => {
@@ -47,6 +61,8 @@ const readFiles = (pathMdFiles) => {
         })
     })
 }
+
+console.log(resolveAbsolutePath(process.argv[2]))
 
 module.exports = {
     resolveAbsolutePath,
