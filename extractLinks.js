@@ -1,42 +1,45 @@
 const { marked } = require('marked')
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
-const fs = require('fs')
 
 //console.log('Ver marked', marked)
 
-
-const extractLinks = (contentFile) => {
-    const readFile = fs.readFileSync(contentFile, {encoding:'utf8', flag:'r'})
-    const getHtml = marked(readFile)
-    console.log(getHtml)
-    const dom = new JSDOM(readFile)
-    console.log(dom)
-    // const links = dom.window.document.getElementsByTagName('a')
-    // return links
-
-};
-
-// const extractLinks = (link) => {
-//    const regExp =  new RegExp("((https?://)|(https?://)).?[a-zA-Z0-9-_.]+/([a-zA-Z0-9-_./?=#]?)+","g")
-//    let linkResult = []
-//     if(link){
-//         linkResult = link.match(regExp)
-//         console.log(linkResult)
-//     } else {
-//         console.log('No hay link')
-//     }
-// };
-
-
-const createObjectLinks = (link) => {
-    return { 
-      href: link.href, 
-      text: link.text, 
-      file:pathFile, 
-      status:'', 
-      ok:'' 
-    }
+const createObjectLinks = (link, file) => {
+  return {
+    href: link.href,
+    text: link.text,
+    file: file,
+    status: '',
+    ok: ''
+  }
 }
 
-console.log(extractLinks(process.argv[2]))
+
+const extractLinks = (fileMd, fileData) => {
+  const getHtml = marked(fileData)
+  //const regExp = new RegExp("((https?://)|(https?://)).?[a-zA-Z0-9-_.]+/([a-zA-Z0-9-_./?=#]?)+", "g")
+  let linkList = []
+  //console.log(getHtml)
+  const dom = new JSDOM(getHtml)
+  //console.log(dom)
+  const links = dom.window.document.querySelectorAll('a')
+  links.forEach((link) => {
+    //if (regExp.test(link.href)) {
+      if (link.href.includes('http')) {
+      //console.log(link.href)
+      //console.log(link.text)
+      linkList.push(createObjectLinks(link, fileMd))
+      
+    }
+
+  })
+  return linkList
+};
+
+// const param = process.argv[2]
+// const readFile = fs.readFileSync(param, {encoding:'utf8', flag:'r'})
+// console.log(extractLinks(param,readFile))
+
+module.exports = {
+  extractLinks
+}

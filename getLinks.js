@@ -2,21 +2,19 @@
 
 const getPath = require('./getPath.js')
 const pathFile = process.argv[2]
-const getMdFiles = require('./getMdFiles.js')
+const extractLinks = require('./extractLinks.js')
 
+const getLinks = (fileMd) => {
+  getPath.readFiles(fileMd) //pathFile es el nombre del archivo md
+  .then((fileData) => { //data es el contenido del archivo
+      console.log('Resuelta')
+     // console.log('Esta es la data:',fileData)
+     console.log('AQUI HAY LINKS',extractLinks.extractLinks(fileMd, fileData))
+     //return 'AQUI LINKS',extractLinks.extractLinks(fileMd, fileData)
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+}
 
-
-//prueba
-
-getPath.readFiles(pathFile) //pathFile es el nombre del archivo md
-.then((fileData) => { //data es el contenido del archivo
-    console.log('Resuelta')
-    console.log('Esta es la data:',fileData)
-  })
-  .catch((err) => {
-    console.log(err)
-  })
-//prueba
-
-console.log(getPath.readFiles(pathFile))
-
+console.log('tengolinks',getLinks(pathFile))
