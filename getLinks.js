@@ -4,6 +4,12 @@ const getPath = require('./getPath.js')
 const pathFile = process.argv[2]
 const extractLinks = require('./extractLinks.js')
 
+/**
+ * 
+ * @param {String} fileMd que será leido de manera asíncrona
+ * @return {Array} de objetos con contenido de links, y data  
+ */
+
 const getLinks = (fileMd) => {
   getPath.readFiles(fileMd) //pathFile es el nombre del archivo md
   .then((fileData) => { //data es el contenido del archivo

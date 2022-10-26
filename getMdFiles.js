@@ -2,6 +2,11 @@ const getPath = require('./getPath')
 const path = require('path')
 const fs = require('fs');
 
+
+/**
+ * @param {String} receivedRoute  
+ * @returns {Array} con archivos .md
+ */
 const getMdFiles = (receivedRoute) => {
     const absolutePath = getPath.resolveAbsolutePath(receivedRoute)
     let mdFileList = []
