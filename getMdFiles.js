@@ -2,7 +2,6 @@ const getPath = require('./getPath')
 const path = require('path')
 const fs = require('fs');
 
-
 /**
  * @param {String} receivedRoute  
  * @returns {Array} con archivos .md
@@ -23,14 +22,10 @@ const getMdFiles = (receivedRoute) => {
     return mdFileList
 }
 
-//console.log('Encontró archivo:',getMdFiles(process.argv[2]))
-
 module.exports = {
     getMdFiles
 }
 
 //Documentación, validar se un path existe: https://www.geeksforgeeks.org/node-js-fs-existssync-method/
-
-
 //probar ruta absoluta linux:/mnt/d/Bootcamp_laboratoria/Proyectos/BOG005-md-links/otroprueba
 //windows: d\Bootcamp_laboratoria\Proyectos\BOG005-md-links\otroprueba
