@@ -23,7 +23,7 @@ const getMdFiles = (receivedRoute) => {
     return mdFileList
 }
 
-console.log('Encontró archivo:',getMdFiles(process.argv[2]))
+//console.log('Encontró archivo:',getMdFiles(process.argv[2]))
 
 module.exports = {
     getMdFiles

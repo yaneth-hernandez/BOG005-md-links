@@ -19,14 +19,16 @@ const resolveAbsolutePath = (route) => {
  * @returns {Boolean} true||false en caso de que haya o no directorio
  */
 const isADirectory = (route) => {
-    try{
+    try {
         return fs.statSync(route).isDirectory();
-    } catch(error){
-        if(error.errno === -2){
-            return false
+    } catch (error) {
+        if (error) {
+            console.log(error.message, '\n' + 'Ruta no válida')
+
         }
+
     }
-    
+
 }
 
 /**
@@ -35,14 +37,14 @@ const isADirectory = (route) => {
  * @returns {Boolean} true||false en caso de que haya o no archivo
  */
 const isAFile = (route) => {
-    try{
+    try {
         return fs.statSync(route).isFile();
-    }catch(error){
-        if(error.errno === -2){
-            return false
+    } catch (error) {
+        if (error) {
+            console.log(error.message, '\n' + 'Ruta no válida')
         }
     }
-    
+
 }
 /**
  * 
@@ -53,7 +55,7 @@ const readFiles = (pathMdFiles) => {
     return new Promise((resolve, reject) => {
         fs.readFile(pathMdFiles, 'UTF-8', (err, data) => {
             if (err) {
-                reject({ error: err })
+                reject({ error: err.message })
             } else {
                 resolve(data)
             }
@@ -61,7 +63,7 @@ const readFiles = (pathMdFiles) => {
     })
 }
 
-console.log(resolveAbsolutePath(process.argv[2]))
+//console.log(resolveAbsolutePath(process.argv[2]))
 
 module.exports = {
     resolveAbsolutePath,
