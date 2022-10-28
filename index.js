@@ -2,13 +2,20 @@ const { getMdFiles } = require('./getMdFiles')
 const { getLinks } = require('./getLinks')
 const { validateLinks } = require('./validateLinks')
 
-const mdLinks = (route) => {
+const mdLinks = (route, validate) => {
     return new Promise((resolve, reject) => {
         const mdFiles = getMdFiles(route)
         getLinks(mdFiles) //es un promesa
             .then((links) => {
-                console.log('Sin validate:', links)
-                validateLinks(links)
+                if(process.argv[3] !== '--validate'){
+                    validate = false
+                    console.log('Sin validate:', links)
+                }else{
+                    validate = true
+                    validateLinks(links)
+                }
+                
+                
             })
             .catch((error) => {
                 reject(console.log(error))
@@ -16,4 +23,4 @@ const mdLinks = (route) => {
     })
 }
 
-mdLinks(process.argv[2])
+mdLinks(process.argv[2], process.argv[3])

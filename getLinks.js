@@ -38,7 +38,6 @@ const extractLinks = (fileMd, fileData) => {
   const links = dom.window.document.querySelectorAll('a')
 
   links.forEach((link) => {
-    console.log('LINK', link.href)
     link.href.includes('http') ? linkList.push(createObjectLinks(link, fileMd)) : linkList
   })
   return linkList

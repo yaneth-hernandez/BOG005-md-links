@@ -1,4 +1,4 @@
-const fetch = require("node-fetch");
+const  fetch  = require("node-fetch");
 //versión de la librería para petición: npm i node-fetch@2.6.7
 //Compatible con require
 const { createObjectLinks } = require('./getLinks')
@@ -7,11 +7,11 @@ const { createObjectLinks } = require('./getLinks')
 const validateLinks = (links) => {
   links.forEach(link => {
     fetch(link.href) //link válido
-      .then(function (response) {
+      .then((response) => {
         let object = createObjectLinks(link, link.file, response)
         console.log('Con validate', object);
       })
-      .catch(function (error) {
+      .catch((error) =>{
         console.log(error);
       })
   });
