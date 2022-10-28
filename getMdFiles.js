@@ -10,7 +10,7 @@ const getMdFiles = (receivedRoute) => {
     const absolutePath = getPath.resolveAbsolutePath(receivedRoute)
     let mdFileList = []
     if (getPath.isADirectory(absolutePath)) {
-        const mdFilesInDirectory = fs.readdirSync(absolutePath,"utf-8")
+        const mdFilesInDirectory = fs.readdirSync(absolutePath, "utf-8")
         mdFilesInDirectory.forEach((dir) => {
             let newPath = path.join(absolutePath, dir)
             mdFileList = mdFileList.concat(getMdFiles(newPath))

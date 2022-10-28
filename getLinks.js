@@ -4,16 +4,26 @@ const { JSDOM } = jsdom;
 const { marked } = require('marked')
 
 /**
- * @param {String} link encontrado en el archivo
- * @param {String} file el archivo md que será leido
- * @returns {Object} con el contenido de los links
+ * @param { HTMLAnchorElement {}} link un objeto con infirmación
+ *  de cada link encontrado en el archivo
+ * @param {String} file archivo .md
+ * @param {Object} res respuesta a petición HTTP
+ * @return {Object} objectLinks 
  */
-const createObjectLinks = (link, file) => {
-  return {
-    href: link.href,
-    text: link.text,
-    file: file,
+const createObjectLinks = (link, file, res = null) => {
+  const objectLinks = {}
+  if (res !== null) {
+    objectLinks.href = link.href
+    objectLinks.text = link.text
+    objectLinks.file = file
+    objectLinks.status = res.status
+    objectLinks.message = res.statusText === 'Not Found' ? 'fail' : 'ok'
+  } else {
+    objectLinks.href = link.href
+    objectLinks.text = link.text
+    objectLinks.file = file
   }
+  return objectLinks
 }
 
 /**
@@ -26,7 +36,9 @@ const extractLinks = (fileMd, fileData) => {
   const getHtml = marked(fileData)
   const dom = new JSDOM(getHtml)
   const links = dom.window.document.querySelectorAll('a')
+
   links.forEach((link) => {
+    console.log('LINK', link.href)
     link.href.includes('http') ? linkList.push(createObjectLinks(link, fileMd)) : linkList
   })
   return linkList
@@ -63,5 +75,6 @@ const getLinks = (listMdFiles) => {
 }
 
 module.exports = {
-  getLinks
+  getLinks,
+  createObjectLinks
 }

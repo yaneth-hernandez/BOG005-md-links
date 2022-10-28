@@ -1,21 +1,19 @@
-const getMdFiles = require('./getMdFiles')
-const getLinks = require('./getLinks')
+const { getMdFiles } = require('./getMdFiles')
+const { getLinks } = require('./getLinks')
+const { validateLinks } = require('./validateLinks')
 
-const mdLinks= (route)=>{
-    return new Promise((resolve,reject)=>{
-        const mdFiles = getMdFiles.getMdFiles(route)
-        console.log(mdFiles)
-        getLinks.getLinks(mdFiles)
-        .then((res)=>{
-            resolve(console.log(res))
-            //console.log('Promesa cumplida',res)
-        })
-        .catch((error)=>{
-            reject(console.log(error))
-        })
+const mdLinks = (route) => {
+    return new Promise((resolve, reject) => {
+        const mdFiles = getMdFiles(route)
+        getLinks(mdFiles) //es un promesa
+            .then((links) => {
+                console.log('Sin validate:', links)
+                validateLinks(links)
+            })
+            .catch((error) => {
+                reject(console.log(error))
+            })
     })
 }
 
 mdLinks(process.argv[2])
-
-//1.- Si getLinks lee los archivos y extrae los links, Por qué no extrae links de cada archivo extraido de manera recursiva??
