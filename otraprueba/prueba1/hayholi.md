@@ -1,1 +1,1 @@
-[aquí](https://www.figma.com/file/h4lVco0D8PiTlSNLkZ0wFR/Data-Lovers-Laboratoria-%7C-Alta-Fidelidad?node-id=0%3A1)
+[Allá](https://www.figma.com/file/h4lVco0D8PiTlSNLkZ0wFR/Data-Lovers-Laboratoria-%7C-Alta-Fidelidad?node-id=0%3A1)
