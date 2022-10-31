@@ -3,44 +3,52 @@ const fetch = require("node-fetch");
 //Compatible con require
 const { createObjectLinks } = require('./getLinks')
 
-
-// const validateLinks = (links, validate) => {
-//   links.forEach(link => {
-//   console.log('SOLO LINKS',link);
-//   fetch(link.href) //link válido
-//   .then(function (response) {
-//     let object = createObjectLinks(link, link.file,response)
-//     //console.log('SOLO LINKS',link);
-//     console.log('OBJETO',object);
-//   })
-//   .catch(function (error) {
-//     // handle error
-//     console.log(error);
-//   })
-// });
-
-// }
-
 const validateLinks = (links, validate) => {
-  const objectList = links.map(link => 
-   fetch(link.href) //link válido
-        .then(function (response) {
-          if (validate !== '--validate') {
-            return link
-          } else {
-            //console.log(createObjectLinks(link, link.file, response));
-           return createObjectLinks(link, link.file, response)
-          
-          }
-        })
-        .catch(function (error) {
-          // handle error
-          console.log(error);
-          //console.log(link.href)
-        })
+  const objectList = links.map(link =>
+    fetch(link.href) //link válido
+      .then(function (response) {
+        if (validate !== '--validate') {
+          return link
+        } else {
+          //console.log(createObjectLinks(link, link.file, response));
+          return createObjectLinks(link, link.file, response)
+        }
+      })
+      .catch(function (error) {
+        // handle error
+        //console.log(error.code);
+        //   console.log('el link con error',link.href)
+        const objectError = createObjectLinks(link, link.file, error)
+        objectError.status = 502
+        objectError.message = error.code === 'ENOTFOUND' ? 'fail' : error.code
+        return objectError
+        //return createObjectLinks(link, link.file, error)
+      })
   );
   return Promise.all(objectList)
 }
+
+/*const withOutValidate = (links, validate) => {
+  const objectList = links.map(link =>
+    fetch(link.href) //link válido
+      .then(function (response) {
+        if (validate !== '--validate') {
+          return link
+        } else {
+          //console.log(createObjectLinks(link, link.file, response));
+          return createObjectLinks(link, link.file, response)
+        }
+      })
+      .catch(function (error) {
+        // handle error
+       console.log(error);
+      //  console.log(link.href)
+      })
+  );
+  return Promise.all(objectList)
+}*/
+
+
 
 
 //validateLinks(process.argv[2], process.argv[3])

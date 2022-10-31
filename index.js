@@ -2,13 +2,17 @@ const { getMdFiles } = require('./getMdFiles')
 const { getLinks } = require('./getLinks')
 const { validateLinks } = require('./validateLinks')
 
-const mdLinks = (route,validate) => {
+const mdLinks = (route, validate) => {
     return new Promise((resolve, reject) => {
         const mdFiles = getMdFiles(route)
         getLinks(mdFiles) //es un promesa
             .then((links) => {
-                validateLinks(links,validate)
-                .then(resolve)
+                if(validate === '--validate'){
+                     validateLinks(links, validate)
+                    .then(resolve)
+                }else{
+                    console.log(links)
+                }
                
             })
             .catch((error) => {
@@ -17,5 +21,5 @@ const mdLinks = (route,validate) => {
     })
 }
 
-mdLinks(process.argv[2],process.argv[3])
-.then(console.log)
+mdLinks(process.argv[2], process.argv[3])
+    .then(console.log)
