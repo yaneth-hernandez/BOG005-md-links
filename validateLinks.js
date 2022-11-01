@@ -11,7 +11,7 @@ const validateLinks = (links) => {
       })
       .catch(function (error) {
         const objectError = createObjectLinks(link, link.file, error)
-        objectError.status = 502
+        objectError.status = 500
         objectError.message = error.code === 'ENOTFOUND' ? 'fail' : error.code
         return objectError
       })

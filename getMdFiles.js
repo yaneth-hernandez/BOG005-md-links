@@ -9,18 +9,22 @@ const fs = require('fs');
 const getMdFiles = (receivedRoute) => {
     const absolutePath = getPath.resolveAbsolutePath(receivedRoute)
     let mdFileList = []
-    if (getPath.isADirectory(absolutePath)) {
-        const mdFilesInDirectory = fs.readdirSync(absolutePath, "utf-8")
-        mdFilesInDirectory.forEach((dir) => {
-            let newPath = path.join(absolutePath, dir)
-            mdFileList = mdFileList.concat(getMdFiles(newPath))
-        })
-
-    } else if (getPath.isAFile(absolutePath)) {
-        path.extname(absolutePath) === '.md' ? mdFileList.push(absolutePath) : mdFileList
+    try {
+        if (getPath.isADirectory(absolutePath)) {
+            const mdFilesInDirectory = fs.readdirSync(absolutePath, "utf-8")
+            mdFilesInDirectory.forEach((dir) => {
+                let newPath = path.join(absolutePath, dir)
+                mdFileList = mdFileList.concat(getMdFiles(newPath))
+            })
+        } else if (getPath.isAFile(absolutePath)) {
+            path.extname(absolutePath) === '.md' ? mdFileList.push(absolutePath) : mdFileList
+        }
+    } catch (error) {
+        console.log(error)
     }
     return mdFileList
 }
+
 
 module.exports = {
     getMdFiles

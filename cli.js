@@ -1,7 +1,6 @@
 const { mdLinks } = require('./index')
 const { cliResponse } = require('./cliResponse')
 
-
 const options = {
     validate: process.argv.includes('--validate'),
     stats: process.argv.includes('--stats')
