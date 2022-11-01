@@ -1,4 +1,4 @@
-const getPath = require('./getPath')
+const getPath  = require('./getPath')
 const path = require('path')
 const fs = require('fs');
 

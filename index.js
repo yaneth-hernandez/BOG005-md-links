@@ -29,6 +29,11 @@ const mdLinks = (route, options) => {
                     validateLinks(links)
                         .then(resolve)
                     return
+                    // validateLinks(links)
+                    // .then((res)=>{
+                    //     //console.log(res)
+                    //     resolve(res)
+                    // })
                 }
                 if (options.stats) {
                     const result = {
