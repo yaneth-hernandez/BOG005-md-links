@@ -16,6 +16,4 @@ mdLinks(process.argv[2], options)
 
     //https://www.youtube.com/watch?v=BkotrAFtBM0
 
-    //solo validate { validate: true, stats: false }
-    //solo stats { validate: false, stats: true }
-    //validate y stat { validate: true, stats: true }
+    

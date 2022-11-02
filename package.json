@@ -25,6 +25,9 @@
     "url": "https://github.com/yaneth-hernandez/BOG005-md-links/issues"
   },
   "homepage": "https://github.com/yaneth-hernandez/BOG005-md-links#readme",
+  "bin": {
+    "mdLinks": "./cli.js"
+  },
   "dependencies": {
     "jsdom": "^20.0.1",
     "marked": "^4.1.1",

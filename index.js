@@ -13,16 +13,18 @@ const mdLinks = (route, options) => {
         const mdFiles = getMdFiles(route)
         getLinks(mdFiles) //es un promesa
             .then((links) => {
+                console.log("las opciones", options)
                 if (options.validate && options.stats) {
                     validateLinks(links)
                         .then((res) => {
+                           //console.log(res)
                             const result = {
                                 Total: res.length,
                                 Unique: new Set(res).size,
                                 Broken: res.filter(link => link.message !== 'ok').length,
                             }
                             resolve(result)
-                            return;
+                            //return;
                         })
                 }
                 if (options.validate) {
@@ -46,6 +48,7 @@ const mdLinks = (route, options) => {
                 resolve(links)
             })
             .catch((error) => {
+                //console.log('AQUÍ UN ERROR',error)//No está respondiendo
                 reject(console.log(error))
             })
     })

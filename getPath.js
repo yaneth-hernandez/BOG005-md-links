@@ -20,7 +20,7 @@ const isADirectory = (route) => {
     try {
         return fs.statSync(route).isDirectory();
     } catch (error) {
-        throw error.message, '\n' + 'Ingrese una ruta válida'
+       throw error.message,'Ingrese una ruta de directorio válida'
     }
 }
 
@@ -32,7 +32,7 @@ const isAFile = (route) => {
     try {
         return fs.statSync(route).isFile();
     } catch (error) {
-        throw error.message, '\n' + 'Ingrese una ruta válida'
+        throw error.message,'Ingrese una ruta de archivo válida'
     }
 }
 
