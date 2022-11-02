@@ -64,11 +64,9 @@ const readFiles = (pathMdFile) => {
  * @return {Array} de objetos con contenido de links, y data  
  */
 const getLinks = (listMdFiles) => {
-  //let promises = []
   let promises = listMdFiles.map(mdFile => {
     return readFiles(mdFile)
   });
-
   return Promise.all(promises)
     .then((res) => res.flat())
 }

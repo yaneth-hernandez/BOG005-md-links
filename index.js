@@ -17,25 +17,20 @@ const mdLinks = (route, options) => {
                 if (options.validate && options.stats) {
                     validateLinks(links)
                         .then((res) => {
-                           //console.log(res)
+                            //console.log(res)
                             const result = {
                                 Total: res.length,
                                 Unique: new Set(res).size,
                                 Broken: res.filter(link => link.message !== 'ok').length,
                             }
                             resolve(result)
-                            //return;
+                            return;
                         })
                 }
                 if (options.validate) {
                     validateLinks(links)
                         .then(resolve)
                     return
-                    // validateLinks(links)
-                    // .then((res)=>{
-                    //     //console.log(res)
-                    //     resolve(res)
-                    // })
                 }
                 if (options.stats) {
                     const result = {
@@ -46,9 +41,9 @@ const mdLinks = (route, options) => {
                     return
                 }
                 resolve(links)
+
             })
             .catch((error) => {
-                //console.log('AQUÍ UN ERROR',error)//No está respondiendo
                 reject(console.log(error))
             })
     })
