@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yaneth-hernandez/BOG005-md-links.git"
+    "url": "git+https://github.com/yaneth-hernandez/markdown-links-yh.git"
   },
   "keywords": [
     "Javascript",
@@ -24,11 +24,11 @@
   "author": "Yaneth Hernández",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/yaneth-hernandez/BOG005-md-links/issues"
+    "url": "https://github.com/yaneth-hernandez/markdown-links-yh/issues"
   },
-  "homepage": "https://github.com/yaneth-hernandez/BOG005-md-links#readme",
+  "homepage": "https://github.com/yaneth-hernandez/markdown-links-yh#readme",
   "bin": {
-    "mdLinks": "./cli.js"
+    "mdLinks": "cli.js"
   },
   "dependencies": {
     "jsdom": "^20.0.1",

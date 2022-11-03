@@ -19,27 +19,27 @@ const withoutValidate = [
   {
     href: 'https://es.wikipedia.org/wiki/Markdown',
     text: 'Markdown',
-    file: 'D:\\Bootcamp_laboratoria\\Proyectos\\BOG005-md-links\\test\\testFolder\\hi.md'
+    file: 'D:\\Bootcamp_laboratoria\\Proyectos\\markdown-links-yh\\test\\testFolder\\hi.md'
   },
   {
     href: 'https://es.wikipedia.org/wiki/Markdown',
     text: 'alexis',
-    file: 'D:\\Bootcamp_laboratoria\\Proyectos\\BOG005-md-links\\test\\testFolder\\hi.md'
+    file: 'D:\\Bootcamp_laboratoria\\Proyectos\\markdown-links-yh\\test\\testFolder\\hi.md'
   },
   {
     href: 'https://0es.wikipedia.org/wiki/Markdown',
     text: 'kembeck',
-    file: 'D:\\Bootcamp_laboratoria\\Proyectos\\BOG005-md-links\\test\\testFolder\\hi.md'
+    file: 'D:\\Bootcamp_laboratoria\\Proyectos\\markdown-links-yh\\test\\testFolder\\hi.md'
   },
   {
     href: 'https://www.figma.com/file/h4lVco0D8PiTlSNLkZ0wFR/Data-Lovers-Laboratoria-%7C-Alta-Fidelidad?node-id=0%3A1',
     text: 'Test',
-    file: 'D:\\Bootcamp_laboratoria\\Proyectos\\BOG005-md-links\\test\\testFolder\\prueba1\\hayholi.md'
+    file: 'D:\\Bootcamp_laboratoria\\Proyectos\\markdown-links-yh\\test\\testFolder\\prueba1\\hayholi.md'
   },
   {
     href: 'https://www.figma.com/file/h4lVco0D8PiTlSNLkZ0wFR/Data-Lovers-Laboratoria-%7C-Alta-Fidelidad?node-id=0%3A1',
     text: 'aquí',
-    file: 'D:\\Bootcamp_laboratoria\\Proyectos\\BOG005-md-links\\test\\testFolder\\prueba1\\holi.md'
+    file: 'D:\\Bootcamp_laboratoria\\Proyectos\\markdown-links-yh\\test\\testFolder\\prueba1\\holi.md'
   }
 ]
 
@@ -47,35 +47,35 @@ const validatedLinksObject = [
   {
     href: 'https://es.wikipedia.org/wiki/Markdown',
     text: 'Markdown',
-    file: 'D:\\Bootcamp_laboratoria\\Proyectos\\BOG005-md-links\\test\\testFolder\\hi.md',
+    file: 'D:\\Bootcamp_laboratoria\\Proyectos\\markdown-links-yh\\test\\testFolder\\hi.md',
     status: 200,
     message: 'ok'
   },
   {
     href: 'https://es.wikipedia.org/wiki/Markdown',
     text: 'alexis',
-    file: 'D:\\Bootcamp_laboratoria\\Proyectos\\BOG005-md-links\\test\\testFolder\\hi.md',
+    file: 'D:\\Bootcamp_laboratoria\\Proyectos\\markdown-links-yh\\test\\testFolder\\hi.md',
     status: 200,
     message: 'ok'
   },
   {
     href: 'https://0es.wikipedia.org/wiki/Markdown',
     text: 'kembeck',
-    file: 'D:\\Bootcamp_laboratoria\\Proyectos\\BOG005-md-links\\test\\testFolder\\hi.md',
+    file: 'D:\\Bootcamp_laboratoria\\Proyectos\\markdown-links-yh\\test\\testFolder\\hi.md',
     status: 500,
     message: 'fail'
   },
   {
     href: 'https://www.figma.com/file/h4lVco0D8PiTlSNLkZ0wFR/Data-Lovers-Laboratoria-%7C-Alta-Fidelidad?node-id=0%3A1',
     text: 'Test',
-    file: 'D:\\Bootcamp_laboratoria\\Proyectos\\BOG005-md-links\\test\\testFolder\\prueba1\\hayholi.md',
+    file: 'D:\\Bootcamp_laboratoria\\Proyectos\\markdown-links-yh\\test\\testFolder\\prueba1\\hayholi.md',
     status: 404,
     message: 'fail'
   },
   {
     href: 'https://www.figma.com/file/h4lVco0D8PiTlSNLkZ0wFR/Data-Lovers-Laboratoria-%7C-Alta-Fidelidad?node-id=0%3A1',
     text: 'aquí',
-    file: 'D:\\Bootcamp_laboratoria\\Proyectos\\BOG005-md-links\\test\\testFolder\\prueba1\\holi.md',
+    file: 'D:\\Bootcamp_laboratoria\\Proyectos\\markdown-links-yh\\test\\testFolder\\prueba1\\holi.md',
     status: 404,
     message: 'fail'
   }
@@ -85,17 +85,17 @@ const withoutValidateFile = [
   {
     href: 'https://es.wikipedia.org/wiki/Markdown',
     text: 'Markdown',
-    file: 'D:\\Bootcamp_laboratoria\\Proyectos\\BOG005-md-links\\test\\testFolder\\hi.md'
+    file: 'D:\\Bootcamp_laboratoria\\Proyectos\\markdown-links-yh\\test\\testFolder\\hi.md'
   },
   {
     href: 'https://es.wikipedia.org/wiki/Markdown',
     text: 'alexis',
-    file: 'D:\\Bootcamp_laboratoria\\Proyectos\\BOG005-md-links\\test\\testFolder\\hi.md'
+    file: 'D:\\Bootcamp_laboratoria\\Proyectos\\markdown-links-yh\\test\\testFolder\\hi.md'
   },
   {
     href: 'https://0es.wikipedia.org/wiki/Markdown',
     text: 'kembeck',
-    file: 'D:\\Bootcamp_laboratoria\\Proyectos\\BOG005-md-links\\test\\testFolder\\hi.md'
+    file: 'D:\\Bootcamp_laboratoria\\Proyectos\\markdown-links-yh\\test\\testFolder\\hi.md'
   }
 ]
 
