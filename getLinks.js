@@ -2,7 +2,6 @@ const fs = require('fs');
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 const { marked } = require('marked')
-
 /**
  * @param { HTMLAnchorElement {}} link un objeto con infirmación
  *  de cada link encontrado en el archivo
@@ -25,7 +24,6 @@ const createObjectLinks = (link, file, res = null) => {
   }
   return objectLinks
 }
-
 /**
  * @param {String} fileMd Archivo .md 
  * @param {String} fileData data extraida del archivo
@@ -42,7 +40,6 @@ const extractLinks = (fileMd, fileData) => {
   })
   return linkList
 }
-
 /**
  * @param {String} pathMdFile recibe ruta de archivo .md
  * @returns {Promise} resolve si se cumple la promesa y reject si hay un error
@@ -58,7 +55,6 @@ const readFiles = (pathMdFile) => {
     })
   })
 }
-
 /**
  * @param {String} listMdFiles que será leido de manera asíncrona
  * @return {Array} de objetos con contenido de links, y data  
@@ -68,8 +64,15 @@ const getLinks = (listMdFiles) => {
     return readFiles(mdFile)
   });
   return Promise.all(promises)
-    .then((res) => res.flat())
+    // .then((res) => res.flat())
+    // .then((res) => console.log(res))
 }
+readFiles(process.argv[2]).then((res)=>{
+  console.log(res)
+})
+.catch((error)=>{
+  console.log(error)
+})
 
 module.exports = {
   getLinks,

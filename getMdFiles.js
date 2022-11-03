@@ -1,4 +1,4 @@
-const getPath = require('./getPath')
+const { resolveAbsolutePath, isADirectory, isAFile, } = require('./getPath')
 const path = require('path')
 const fs = require('fs');
 
@@ -7,15 +7,15 @@ const fs = require('fs');
  * @returns {Array} con archivos .md
  */
 const getMdFiles = (receivedRoute) => {
-    const absolutePath = getPath.resolveAbsolutePath(receivedRoute)
+    const absolutePath = resolveAbsolutePath(receivedRoute)
     let mdFileList = []
     try {
         if (path.extname(absolutePath) === '.md') {
-            getPath.isAFile(absolutePath)
+            isAFile(absolutePath)
             mdFileList.push(absolutePath)
         }
         else {
-            getPath.isADirectory(absolutePath)
+            isADirectory(absolutePath)
             const mdFilesInDirectory = fs.readdirSync(absolutePath, "utf-8")
             mdFilesInDirectory.forEach((dir) => {
                 let newPath = path.join(absolutePath, dir)

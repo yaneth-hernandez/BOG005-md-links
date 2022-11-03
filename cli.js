@@ -13,7 +13,4 @@ mdLinks(process.argv[2], options)
     .catch((error)=>{
         console.log(error)
     })
-
-    //https://www.youtube.com/watch?v=BkotrAFtBM0
-
     

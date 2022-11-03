@@ -13,35 +13,44 @@ const mdLinks = (route, options) => {
         const mdFiles = getMdFiles(route)
         getLinks(mdFiles) //es un promesa
             .then((links) => {
-                console.log("las opciones", options)
+                //console.log()
+                let allLinks = links.flat()
                 if (options.validate && options.stats) {
-                    validateLinks(links)
+                    validateLinks(allLinks) 
                         .then((res) => {
-                            //console.log(res)
+                            console.log(res)
                             const result = {
                                 Total: res.length,
                                 Unique: new Set(res).size,
                                 Broken: res.filter(link => link.message !== 'ok').length,
                             }
                             resolve(result)
-                            return;
+                            //return
                         })
+                        .catch((error) => {
+                            result.Broken = error.message
+                            reject(result)
+                        })
+                        return
                 }
                 if (options.validate) {
-                    validateLinks(links)
+                    validateLinks(allLinks)
                         .then(resolve)
+                        .catch((error) => {
+                            reject(console.log(error))
+                        })
                     return
                 }
                 if (options.stats) {
                     const result = {
-                        Total: links.length,
-                        Unique: new Set(links).size,
+                        Total: allLinks.length,
+                        Unique: new Set(allLinks).size,
                     }
                     resolve(result)
                     return
                 }
-                resolve(links)
-
+                resolve(allLinks)
+                return
             })
             .catch((error) => {
                 reject(console.log(error))
