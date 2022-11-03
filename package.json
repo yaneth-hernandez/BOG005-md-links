@@ -17,7 +17,9 @@
     "url": "git+https://github.com/yaneth-hernandez/BOG005-md-links.git"
   },
   "keywords": [
-    "Javascript"
+    "Javascript",
+    "Node.js",
+    "Markdown"
   ],
   "author": "Yaneth Hernández",
   "license": "ISC",
