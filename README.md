@@ -48,7 +48,7 @@ Con `validate:true` :
 #### Ejemplo 
 
 ```js
-const mdLinks = require("md-links");
+const mdLinks = require("markdown-links-yh");
 
 mdLinks("./some/example.md")
   .then(links => {

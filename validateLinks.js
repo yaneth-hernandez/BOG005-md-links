@@ -5,7 +5,7 @@ const { createObjectLinks } = require('./getLinks')
 
 const validateLinks = (links) => {
   const objectList = links.map(link =>
-    fetch(link.href) //link válido
+    fetch(link.href)
       .then(function (response) {
         return createObjectLinks(link, link.file, response)
       })

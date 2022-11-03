@@ -11,7 +11,6 @@ jest.mock('../validateLinks', () => {
 const correctDirectoryPath = 'test/testFolder'
 const wrongDirectoryPath = 'testFolderss'
 const correctFilePath = 'test/testFolder/hi.md'
-const wrongFilePath = 'test/testFolder/hi.md'
 const responseObjectStats = { Total: 5, Unique: 5 }
 const responseValidateStats = { Total: 5, Unique: 5, Broken: 3 }
 

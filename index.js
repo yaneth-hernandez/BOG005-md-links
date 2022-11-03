@@ -11,21 +11,18 @@ const { validateLinks } = require('./validateLinks')
 const mdLinks = (route, options) => {
     return new Promise((resolve, reject) => {
         const mdFiles = getMdFiles(route)
-        getLinks(mdFiles) //es un promesa
+        getLinks(mdFiles) 
             .then((links) => {
-                //console.log()
                 let allLinks = links.flat()
                 if (options.validate && options.stats) {
                     validateLinks(allLinks) 
                         .then((res) => {
-                            console.log(res)
                             const result = {
                                 Total: res.length,
                                 Unique: new Set(res).size,
                                 Broken: res.filter(link => link.message !== 'ok').length,
                             }
                             resolve(result)
-                            //return
                         })
                         .catch((error) => {
                             result.Broken = error.message

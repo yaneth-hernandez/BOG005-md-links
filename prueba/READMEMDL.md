@@ -334,7 +334,7 @@ Con `validate:true` :
 #### Ejemplo (resultados como comentarios)
 
 ```js
-const mdLinks = require("md-links");
+const mdLinks = require("markdown-links-yh");
 
 mdLinks("./some/example.md")
   .then(links => {
