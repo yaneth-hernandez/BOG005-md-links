@@ -64,15 +64,7 @@ const getLinks = (listMdFiles) => {
     return readFiles(mdFile)
   });
   return Promise.all(promises)
-    // .then((res) => res.flat())
-    // .then((res) => console.log(res))
 }
-readFiles(process.argv[2]).then((res)=>{
-  console.log(res)
-})
-.catch((error)=>{
-  console.log(error)
-})
 
 module.exports = {
   getLinks,
