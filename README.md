@@ -2,10 +2,10 @@
 
 ![md-links](https://sandmann.co/wp-content/uploads/Was-ist-Markdown-Cover.jpg)
 
-Herramienta ejecutable en línea de comando (CLI), desarrollada en [Node.js](https://nodejs.org/es/), entorno de ejecución para JavaScript.
+Herramienta ejecutable en línea de comando (CLI), desarrollada en [Node.js](https://nodejs.org/es/), entorno de ejecución para JavaScript, para validar dentro de archivos .md los links existentes en este.
 
 ### 1. Instalación
-`npm install <github-user>/md-links`
+`npm i markdown-links-yh`
 
 ### 2. Uso
 ```js
@@ -73,12 +73,12 @@ mdLinks("./some/dir")
 
 En **terminal** CLI:
 
-`md-links <path-to-file> [options]`
+`npm i markdown-links-yh <path-to-file> [options]`
 
 Ejemplo:
 
 ```sh
-$ md-links ./some/example.md
+$ mdLinks ./some/example.md
 ./some/example.md http://algo.com/2/3/ Link a algo
 ./some/example.md https://otra-cosa.net/algun-doc.html algún doc
 ./some/example.md http://google.com/ Google
@@ -90,7 +90,7 @@ $ md-links ./some/example.md
 
 ##### `--validate`
 ```sh
-$ md-links ./some/example.md --validate
+$ mdLinks ./some/example.md --validate
 ./some/example.md http://algo.com/2/3/ ok 200 Link a algo
 ./some/example.md https://otra-cosa.net/algun-doc.html fail 404 algún doc
 ./some/example.md http://google.com/ ok 301 Google
@@ -99,7 +99,7 @@ $ md-links ./some/example.md --validate
 ##### `--stats`
 
 ```sh
-$ md-links ./some/example.md --stats
+$ mdLinks ./some/example.md --stats
 Total: 3
 Unique: 3
 ```
@@ -107,7 +107,7 @@ Unique: 3
 `--stats` `--validate` 
 
 ```sh
-$ md-links ./some/example.md --stats --validate
+$ mdLinks ./some/example.md --stats --validate
 Total: 3
 Unique: 3
 Broken: 1
