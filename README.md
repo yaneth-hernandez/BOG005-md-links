@@ -1,8 +1,9 @@
-# Markdown Links 4678
+# Markdown Links
 
 ![md-links](https://sandmann.co/wp-content/uploads/Was-ist-Markdown-Cover.jpg)
 
-Herramienta ejecutable en línea de comando (CLI), desarrollada en [Node.js](https://nodejs.org/es/), entorno de ejecución para JavaScript, para validar dentro de archivos .md los links existentes en este.
+Herramienta ejecutable en línea de comando (CLI), desarrollada en [Node.js](https://nodejs.org/es/), entorno de ejecución para JavaScript, para validar dentro de archivos .md los links existentes.
+Asegúrate de tener creado un package.json en donde instalarás esta librería.
 
 ### 1. Instalación
 `npm i markdown-links-yh`
@@ -33,24 +34,56 @@ siguiente interfaz:
 
 Con `validate:false` :
 
-* `href`: URL encontrada.
-* `text`: Texto que aparecía dentro del link (`<a>`).
-* `file`: Ruta del archivo donde se encontró el link.
-
+```js
+[
+  {
+    href: 'https://es.wikipedia.org/wiki/Markdown',
+    text: 'Markdown',
+    file: 'D:\\Bootcamp_laboratoria\\Proyectos\\markdown-links-yh\\test\\testFolder\\hi.md'
+  },
+]
+```
 Con `validate:true` :
 
-* `href`: URL encontrada.
-* `text`: Texto que aparecía dentro del link (`<a>`).
-* `file`: Ruta del archivo donde se encontró el link.
-* `status`: Código de respuesta HTTP.
-* `ok`: Mensaje `fail` en caso de fallo u `ok` en caso de éxito.
+```js
+[
+  {
+    href: 'https://es.wikipedia.org/wiki/Markdown',
+    text: 'Markdown',
+    file: 'D:\\Bootcamp_laboratoria\\Proyectos\\markdown-links-yh\\test\\testFolder\\hi.md',
+    status: 200,
+    message: 'ok'
+  }, 
+     {
+    href: 'https://0es.wikipedia.org/wiki/Markdown',
+    text: 'kembeck',
+    file: 'D:\\Bootcamp_laboratoria\\Proyectos\\markdown-links-yh\\test\\testFolder\\hi.md',
+    status: 500,
+    message: 'fail'
+  },
+]
+```
+Con `validate:true stats:true` :
+
+```js
+{ Total: 5, Unique: 5, Broken: 3 }
+```
+Con `validate:false stats:true` :
+
+```js
+{ Total: 5, Unique: 5 }
+```
 
 #### Ejemplo 
 
 ```js
 const mdLinks = require("markdown-links-yh");
+const options = {
+    validate: process.argv.includes('--validate'),
+    stats: process.argv.includes('--stats')
+}
 
-mdLinks("./some/example.md")
+mdLinks("./some/example.md", options)
   .then(links => {
     // => [{ href, text, file }, ...]
   })
@@ -68,14 +101,15 @@ mdLinks("./some/dir")
   })
   .catch(console.error);
 ```
+Ejecútalo ejecutando en consola: node `<nombre del archivo donde lo has requerido>` `argumento path`,  `argumento options`
 
 ### 2) CLI 
 
-En **terminal** CLI:
+En **terminal** CLI: Asegurate de que tus archivos .js estén configurados para ejecutarse con node.js
 
-`npm i markdown-links-yh <path-to-file> [options]`
+`npm i markdown-links-yh`
 
-Ejemplo:
+Ejecuta el comando `mdLinks` directamente en consola, de acuerdo al siguiente ejemplo:
 
 ```sh
 $ mdLinks ./some/example.md
