@@ -103,9 +103,11 @@ Ejecútalo ejecutando en consola: node `<nombre del archivo donde lo has requeri
 
 ### 2) CLI 
 
-En **terminal** CLI: Asegurate de que tus archivos .js estén configurados para ejecutarse con node.js
+En **terminal** CLI: Asegurate de que tus archivos .js estén configurados para ejecutarse con node.js.
 
-`npm i markdown-links-yh`
+Instala de manera global
+
+`npm i markdown-links-yh -g`
 
 Ejecuta el comando `mdLinks` directamente en consola, de acuerdo al siguiente ejemplo:
 
