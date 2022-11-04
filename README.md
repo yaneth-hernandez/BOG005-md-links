@@ -9,16 +9,14 @@ Asegúrate de tener creado un package.json en donde instalarás esta librería.
 `npm i markdown-links-yh`
 
 ### 2. Uso
+
+#### 1) API
+
+El módulo debe poder **importarse** en otros scripts de Node.js de la siguiente manera:
+
 ```js
-const mdLinks = require("<github-user>/md-links");
+const mdLinks = require("markdown-links-yh");
 ```
-
-### 3. Documentación
-
-#### 1) JavaScript API
-
-El módulo debe poder **importarse** en otros scripts de Node.js y debe ofrecer la
-siguiente interfaz:
 
 #### `mdLinks(path, options)`
 
